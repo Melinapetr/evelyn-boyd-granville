@@ -70,6 +70,45 @@
             height: 240px;
             object-fit: cover;
             border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .image-card img:hover {
+            transform: scale(1.02);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .modal p {
+            color: var(--cream);
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--cream);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
         }
         .image-card p {
             font-size: 0.9rem;
@@ -124,9 +163,14 @@
     
     <main>
         <section>
-            <h2>Kindheit und Ausbildung</h2>
-            <p>Evelyn Boyd Granville wurde am 1. Mai 1924 in Washington, D.C., geboren. Sie wuchs in einer Zeit auf, die stark von Rassismus und Segregation geprägt war. Ihre Eltern ermutigten sie jedoch früh, Bildung als Schlüssel zu Unabhängigkeit und Erfolg zu sehen. Sie besuchte die renommierte Dunbar High School, eine öffentliche Schule für afroamerikanische Schülerinnen und Schüler, die für ihr exaktes akademisches Niveau und ihre hervorragenden Mathematiklehrer bekannt war.</p>
-            <p>Dank ihres herausragenden Talents konnte sie ihr Studium am renommierten Smith College in Massachusetts fortsetzen, wo sie 1945 mit Auszeichnung (Summa cum laude) im Hauptfach Mathematik graduierte. Ihr Weg führte sie weiter an die Elite-Universität Yale. Dort promovierte sie 1949 im Fachbereich Mathematik – als eine der ersten afroamerikanischen Frauen überhaupt, die diesen akademischen Grad in den USA erlangten.</p>
+            <h2>Kindheit und persönliche Wurzeln</h2>
+            <p>Evelyn Boyd Granville wurde am 1. Mai 1924 in Washington, D.C., während der Ära der Rassentrennung (Segregation) geboren. Trotz der gesellschaftlichen Hürden legten ihre Eltern großen Wert auf eine exzellente Bildung und unterstützten ihren Wissensdurst in jeder Hinsicht. Sie wuchs in einer lebendigen afroamerikanischen Gemeinschaft auf und besuchte die angesehene Dunbar High School. Diese öffentliche Schule war bekannt für ihre extrem hohen akademischen Standards, ihren strengen Lehrplan und hervorragende Lehrkräfte, die Evelyns außergewöhnliches Talent für Mathematik früh erkannten und gezielt förderten.</p>
+        </section>
+
+        <section>
+            <h2>Exzellente Ausbildung: Smith College und Yale University</h2>
+            <p>Nach ihrem brillanten Schulabschluss erhielt Evelyn Boyd Granville ein Stipendium für das renommierte Smith College in Massachusetts, eine der besten privaten Frauen-Hochschulen der USA. Dort studierte sie Mathematik und Physik und schloss ihr Bachelor-Studium 1945 mit herausragenden Noten (Summa cum laude) ab. Sie war zudem Mitglied in der berühmten Ehrengesellschaft Phi Beta Kappa.</p>
+            <p>Ihr Weg führte sie direkt weiter an die Elite-Universität Yale. Im Fachbereich Mathematik vertiefte sie ihr Wissen und promovierte im Jahr 1949. Mit diesem Doktorgrad schrieb sie nationale Geschichte: Sie war erst die zweite afroamerikanische Frau in der Geschichte der Vereinigten Staaten, die jemals einen Doktortitel (Ph.D.) in Mathematik erlangte.</p>
         </section>
 
         <div class="image-container">
@@ -140,57 +184,126 @@
             </div>
             <div class="image-card">
                 <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Old_Campus%2C_Yale_University_%282%29.jpg" alt="Yale University">
-                <p>Yale University (Old Campus). <em>Quelle: <a href="https://commons.wikimedia.org/wiki/File:Old_Campus,_Yale_University_(2).jpg" target="_blank">Wikimedia Commons</a></em></p>
+                <p>Yale University (Old Campus). <em>Quelle: <a href="https://commons.wikimedia.org/wiki/File:Old_Campus,_Yale_University_%282%29.jpg" target="_blank">Wikimedia Commons</a></em></p>
             </div>
         </div>
 
         <section>
-            <h2>Karriere, National Bureau of Standards & IBM</h2>
-            <p>Nach ihrer Promotion trat sie zunächst in den öffentlichen Dienst ein und arbeitete beim National Bureau of Standards. Dort beschäftigte sie sich mit mathematischer Physik und numerischer Analyse. Kurz darauf wechselte sie in die freie Wirtschaft und wurde 1956 Mitarbeiterin bei IBM.</p>
-            <p>Bei IBM betrat sie absolutes Neuland in der jungen Computerbranche. Sie entwickelte bahnbrechende Software und Programme für die Großrechner IBM 650 und IBM 704. Ihre Algorithmen ermöglichten hochpräzise Berechnungen von Flugbahnen, die für die Raumfahrtprogramme der USA von entscheidender Bedeutung waren.</p>
+            <h2>Karriere beim National Bureau of Standards & IBM</h2>
+            <p>Bevor sie die Computerwelt revolutionierte, arbeitete sie von 1950 bis 1955 als Mathematikerin beim National Bureau of Standards (NBS). Dort widmete sie sich der numerischen Analyse und mathematischen Physik. Im Jahr 1956 wagte sie den Schritt in die freie Wirtschaft und trat in das aufstrebende Technologieunternehmen IBM ein.</p>
+            <p>Bei IBM betrat sie absolutes Neuland. Sie programmierte die legendären Großrechner IBM 650 und IBM 704. Ihre Aufgabe war es, hochkomplexe Algorithmen zu schreiben, mit denen die Flugbahnen von Satelliten und Raumfahrzeugen extrem präzise berechnet werden konnten.</p>
+        </section>
+
+        <section style="background-color: var(--card-bg); padding: 2.5rem; border-radius: 8px; border: 2px solid var(--gold); margin: 3rem 0;">
+            <h2 style="margin-top: 0; border-left: none; padding-left: 0; color: var(--dark-blue); font-size: 2rem;">Evelyn Boyd Granville und die Reise ins Weltall</h2>
+            <p>Als Pionierin der Computerprogrammierung leistete Evelyn Boyd Granville unersetzliche mathematische Pionierarbeit für die historischen Raumfahrtmissionen der USA. Ihre präzisen Algorithmen für Großrechner machten es erst möglich, Flugbahnen im unbekannten Weltraum exakt vorauszuordnen.</p>
+            
+            <h3 style="color: var(--gold); margin-top: 2rem;">1. Project Vanguard (1958–1959)</h3>
+            <p>Das Vanguard-Programm war das zweite offizielle Satellitenprojekt der USA, das darauf abzielte, künstliche Satelliten in die Erdumlaufbahn zu bringen. Granville entwickelte hochentwickelte Software und mathematische Modelle, um die komplexen Bahndaten und Orbits der Satelliten zu berechnen.</p>
+            <div class="image-container" style="margin: 1.5rem 0;">
+                <div class="image-card">
+                    <img src="https://d1ldvf68ux039x.cloudfront.net/thumbs/photos/2203/7097279/1000w_q95.jpg" alt="Vanguard Satellit 1" onclick="openModal(this)">
+                    <p>Vanguard Satellit (1958). <em>Quelle: NASA</em></p>
+                </div>
+                <div class="image-card">
+                    <img src="https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/vanguard_1_on_p_image_20240411114304.jpeg" alt="Vanguard Satellit Start" onclick="openModal(this)">
+                    <p>Vanguard Raumfahrtsystem. <em>Quelle: The Space Devs</em></p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--gold); margin-top: 2rem;">2. Mercury-Programm (1958–1963)</h3>
+            <p>Das Mercury-Programm war das erste bemannte Raumfahrtprojekt der Vereinigten Staaten. Ziel war es, einen Astronauten in die Erdumlaufbahn zu befördern und ihn sicher zur Erde zurückzubringen. Granvilles Berechnungen trugen maßgeblich dazu bei, die Flugbahn der Raumkapsel während des Starts und der Landung mathematisch zu überwachen.</p>
+            <div class="image-container" style="margin: 1.5rem 0;">
+                <div class="image-card">
+                    <img src="https://images-assets.nasa.gov/image/PIA01126/PIA01126~orig.jpg" alt="Friendship 7 Raketenstart" onclick="openModal(this)">
+                    <p>Project Mercury (1958–1963) – Evelyn Boyd Granville contributed to the mathematical calculations and computer programming behind this historic NASA space program.</p>
+                </div>
+                <div class="image-card">
+                    <img src="https://images-assets.nasa.gov/image/S62-00961/S62-00961~orig.jpg" alt="Mercury Vorbereitung" onclick="openModal(this)">
+                    <p>Mercury Mission Vorbereitung. <em>Quelle: NASA</em></p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--gold); margin-top: 2rem;">3. Apollo-Programm (1961–1972)</h3>
+            <p>Das Apollo-Programm ist das berühmteste Raumfahrtprojekt der Menschheit, das schließlich 1969 mit der ersten bemannten Mondlandung seinen Höhepunkt fand. Auch für diese gigantische Mission lieferte Granville grundlegende mathematische Konzepte zur Flugbahnbestimmung, die für die Navigation im interplanetaren Raum unverzichtbar waren.</p>
+            <div class="image-container" style="margin: 1.5rem 0;">
+                <div class="image-card">
+                    <img src="https://images-assets.nasa.gov/image/S72-55070/S72-55070~orig.jpg" alt="Apollo Mission" onclick="openModal(this)">
+                    <p>Apollo Raumfahrt-Aktivität. <em>Quelle: NASA</em></p>
+                </div>
+                <div class="image-card">
+                    <img src="https://images-assets.nasa.gov/image/as11-40-5868/as11-40-5868~orig.jpg" alt="Apollo Mondlandung" onclick="openModal(this)">
+                    <p>Apollo-Mission zur Mondlandung. <em>Quelle: NASA</em></p>
+                </div>
+            </div>
         </section>
 
         <section>
-            <h2>Beiträge zur Raumfahrt: Vanguard, Mercury und Apollo</h2>
-            <p>Granvilles Expertise im Bereich der Computersoftware war für das US-Raumfahrtprogramm unersetzlich. Sie arbeitete an den Berechnungen für das Vanguard-Projekt, das erste Satellitenprogramm der USA, sowie für das Mercury-Programm, das den ersten US-Amerikaner ins All brachte. Auch für das berühmte Apollo-Programm, das schließlich zur Mondlandung führte, trug sie mit komplexen Berechnungen und Computerprogrammen zur Flugbahnbestimmung bei.</p>
+            <h2>Hürden, Diskriminierung und Durchsetzungskraft</h2>
+            <p>Ihr beruflicher Weg war keineswegs leicht. Als afroamerikanische Frau bewegte sie sich in einer akademischen und technologischen Welt, die fast ausschließlich von weißen Männern dominiert wurde. Sie war häufig die einzige Frau und die einzige farbige Person in ihrem Arbeitsumfeld. Sie begegnete Alltagsrassismus, Vorurteilen und subtilem Sexismus, ließ sich davon jedoch niemals entmutigen. Stattdessen ließ sie ihre herausragende fachliche Arbeit und ihren scharfen Verstand für sich sprechen.</p>
+        </section>
+
+        <section>
+            <h2>Lehrtätigkeit, Auszeichnungen und Vermächtnis</h2>
+            <p>Nach ihrer ereignisreichen Zeit in der Industrie kehrte sie zu ihrer größten Leidenschaft zurück: der Wissensvermittlung. Von 1967 bis zu ihrer Emeritierung 1988 lehrte sie als Professorin für Mathematik und Informatik an der California State University in Los Angeles (CSULA). Sie war eine geschätzte Mentorin und setzte sich leidenschaftlich dafür ein, Frauen und Jugendliche aus Minderheiten für MINT-Fächer zu begeistern.</p>
+            <p>Für ihre Lebensleistung erhielt sie zahlreiche Ehrungen, darunter Ehrendoktorwürden von renommierten US-Colleges. Evelyn Boyd Granville verstarb im Juni 2023 im Alter von 99 Jahren und hinterlässt ein bleibendes Vermächtnis als mathematische Pionierin des Computerzeitalters.</p>
         </section>
 
         <div class="fact-box">
             <h3>Ausführliche Zeitleiste</h3>
             <div class="timeline">
                 <div class="timeline-item">
-                    <p><strong>1924:</strong> Geburt in Washington, D.C.</p>
+                    <p><strong>1924:</strong> Geburt in Washington, D.C. am 1. Mai.</p>
                 </div>
                 <div class="timeline-item">
-                    <p><strong>1945:</strong> Abschluss (B.A.) am Smith College mit Bestnoten.</p>
+                    <p><strong>1945:</strong> Erwerb des Bachelor-Grades (B.A.) in Mathematik am Smith College mit Bestnoten.</p>
                 </div>
                 <div class="timeline-item">
-                    <p><strong>1949:</strong> Promotion in Mathematik an der Yale University.</p>
+                    <p><strong>1949:</strong> Promotion (Ph.D.) in Mathematik an der Yale University als eine der ersten afroamerikanischen Frauen.</p>
                 </div>
                 <div class="timeline-item">
-                    <p><strong>1950–1955:</strong> Forschung und mathematische Arbeit beim National Bureau of Standards.</p>
+                    <p><strong>1950–1955:</strong> Mathematische Forschungsarbeit beim National Bureau of Standards (NBS).</p>
                 </div>
                 <div class="timeline-item">
-                    <p><strong>1956:</strong> Einstieg bei IBM; Programmierung der Rechner IBM 650 und 704 für Flugbahn-Berechnungen.</p>
+                    <p><strong>1956:</strong> Einstieg bei IBM und Programmierung der Großrechner IBM 650 und 704.</p>
                 </div>
                 <div class="timeline-item">
-                    <p><strong>1960er:</strong> Mitarbeit an den Raumfahrtprojekten Mercury und Apollo.</p>
+                    <p><strong>1960er:</strong> Wichtige Beiträge zu den NASA-Projekten Vanguard, Mercury und Apollo.</p>
                 </div>
                 <div class="timeline-item">
                     <p><strong>1967–1988:</strong> Professorin für Mathematik an der California State University, Los Angeles.</p>
                 </div>
                 <div class="timeline-item">
-                    <p><strong>2023:</strong> Versterben im Alter von 99 Jahren als geschätzte Pionierin.</p>
+                    <p><strong>2023:</strong> Tod im Alter von 99 Jahren als gefeierte Ikone der Informatikgeschichte.</p>
                 </div>
             </div>
         </div>
 
-        <section>
-            <h2>Diskriminierung, Lehre und Vermächtnis</h2>
-            <p>Trotz ihrer brillanten wissenschaftlichen Leistungen sah sich Evelyn Boyd Granville während ihrer gesamten Laufbahn mit den doppelten Hürden von Rassismus und Sexismus konfrontiert. Oft war sie die einzige Frau oder die einzige farbige Person in ihren akademischen und beruflichen Arbeitsumgebungen. Sie begegnete diesen Vorurteilen mit unerschütterlicher Entschlossenheit und fachlicher Exzellenz.</p>
-            <p>Nach ihrer Zeit bei IBM kehrte sie zu ihrer wahren Leidenschaft zurück: der Lehre. Sie wurde Professorin an der California State University in Los Angeles, wo sie über zwei Jahrzehnte lang Mathematik und Computerwissenschaften unterrichtete. Als inspirierende Lehrerin und Mentorin setzte sie sich zeitlebens leidenschaftlich dafür ein, junge Menschen – insbesondere Frauen und Minderheiten – für MINT-Berufe (Mathematik, Informatik, Naturwissenschaften und Technik) zu begeistern.</p>
-        </section>
+        <div class="fact-box">
+            <h3>Wusstest du schon?</h3>
+            <p>Evelyn Boyd Granville programmierte nicht nur Großrechner für die Raumfahrt, sondern verfasste 1973 auch eines der frühen und wegweisenden Lehrbücher über digitale Logik und Computer-Programmierung, um die nächste Generation von Informatikern auszubilden!</p>
+        </div>
     </main>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modalImg" src="" alt="">
+        <p id="modalCaption"></p>
+    </div>
+
+    <script>
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalCaption = document.getElementById('modalCaption');
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+            modalCaption.textContent = img.alt;
+        }
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
 
     <footer>
         <p>© Leibniz-Montessori-Gymnasium | Digitale Würdigung einer Pionierin</p>
